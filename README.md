@@ -17,3 +17,29 @@ Creates an SCTP socket on a namespace for testing purposes.  To compile, simply 
 # gcc -o sctp_namespace sctp_namespace.c
 # sudo ./sctp_namespace
 ```
+
+And you should see output similar to the below if SCTP namespace support is enabled on your kernel:
+```
+SCTP socket was created successfully.
+```
+
+or this, if it is not:
+
+```
+Socket allocation failed!
+```
+
+###### bind_device
+Creates a socket on an interface, built for testing sockets on aliased interfaces.  To compile, simply run:
+
+```
+# gcc -o sctp_namespace sctp_namespace.c
+# sudo ./bind_device
+```
+
+Depending on whether or not the socket could be successfully bound to the device is evident by the one of these two outputs:
+
+```
+socket option application successful with device <DEVICE>.
+socket option application failure with device <DEVICE>.
+```
