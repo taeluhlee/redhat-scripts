@@ -10,6 +10,7 @@ int main(int argc, char **argv){
 		printf("Could not allocate memory!\n");
 		return 1;
 	}
+	memset(ptr, 1, GIG);
 	while(1){
 		sleep(20);
 	}
