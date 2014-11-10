@@ -43,3 +43,11 @@ Depending on whether or not the socket could be successfully bound to the device
 socket option application successful with device <DEVICE>.
 socket option application failure with device <DEVICE>.
 ```
+
+###### memget
+Allocates memory, then sleeps.
+
+```
+# gcc -o memget memget.c
+# ./memget
+```
