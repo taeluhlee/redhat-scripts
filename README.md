@@ -43,3 +43,5 @@ Depending on whether or not the socket could be successfully bound to the device
 socket option application successful with device <DEVICE>.
 socket option application failure with device <DEVICE>.
 ```
+###### reset_server.py
+Configured a simple server that can only respond with a RST packet due to SO_LINGER options.
