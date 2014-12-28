@@ -53,3 +53,10 @@ Allocates memory, then sleeps.
 ###### reset_server.py
 Configured a simple server that can only respond with a RST packet due to SO_LINGER options.
 
+###### connector.py
+
+###### conn.py
+
+###### dumbsock
+
+###### segfault
