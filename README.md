@@ -60,3 +60,5 @@ Configured a simple server that can only respond with a RST packet due to SO_LIN
 ###### dumbsock
 
 ###### segfault
+
+###### corrupter
