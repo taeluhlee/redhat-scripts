@@ -1,1 +1,0 @@
-cmd_/home/rmanes/Documents/corrupter/corrupter.ko := ld -r -m elf_x86_64 -T /usr/src/kernels/3.15.10-201.fc20.x86_64/scripts/module-common.lds --build-id  -o /home/rmanes/Documents/corrupter/corrupter.ko /home/rmanes/Documents/corrupter/corrupter.o /home/rmanes/Documents/corrupter/corrupter.mod.o
