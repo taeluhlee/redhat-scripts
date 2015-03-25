@@ -8,7 +8,6 @@ def startClient(server, port):
     msg = "ClIENT CONNECTED."
     try:
         sock = socket.create_connection((server, port))
-        sock.sendall(msg)
     except:
         print "Unable to connect to socket on " + str(server) + \
               " " + str(port)
