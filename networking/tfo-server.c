@@ -1,5 +1,6 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <netinet/tcp.h>
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,7 +20,7 @@ int main(int argc, char **argv){
 	/* Set up IPv6 connection listening on port 54321 */
 	serv_addr.sin_family = AF_INET6;
 	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-	serv_addr.sin_port = htons(54321); 
+	serv_addr.sin_port = htons(5001); 
 
 	/* Bind and configure TFO */
 	bind(lfd, (struct sockaddr*)&serv_addr, sizeof(serv_addr)); 
