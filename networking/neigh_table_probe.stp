@@ -1,0 +1,37 @@
+#!/usr/bin/env stap
+
+/*
+ * neigh_table_probe.stp
+ *   Records the return value of arp_bind_neighbour() and displays information
+ *   only if the return value is non-zero, indicating an error.
+ *
+ * Author: Robb Manes <rmanes@redhat.com>
+ *
+ * Valid only on releases prior to Red Hat Enterprise Linux 7 and pre 3.* kernels.
+ * This script will not work on any kernel release after 2.32.x.
+ */
+
+global count
+
+probe begin
+{
+	printf("Beginning probe of arp_bind_neighbour()...\n\n");
+}
+
+probe end
+{
+	printf("\nCounted %d occurances of non-zero returns from arp_bind_neighbour()\n", count);
+	printf("Probe of arp_bind_neighbour() is exiting...\n");
+}
+
+probe kernel.function("arp_bind_neighbour").return
+{
+	if($return != 0)
+	{
+		printf("%-25s -\n", ctime(gettimeofday_s()));
+		printf("arp_bind_neighbour() returned with ERRNO: %d\n", $return);
+		printf("\tdst @ 0x%x\n", $dst);
+		printf("\tnetdev @ 0x%x (%s)\n", $dst->dev, kernel_string($dst->dev->name));
+		count++;
+	}
+}
